@@ -14,7 +14,7 @@
     if ($usuarios) {
       $_SESSION['idUsuario'] = $usuarios['id'];
       $_SESSION['usuario'] = $usuarios['usuario'];
-      header("Location: listar.php");
+      header("Location: index.php");
     } else {
       $alerta = true;
     }
@@ -38,7 +38,7 @@
             </div>
             <div class="form-group">
               <input type="submit" class="btn btn-success">
-              <a class="btn btn-warning" href="registrar.php">Registrar</a>
+              <a class="btn btn-warning my-3" href="registrar.php">Registrar</a>
             </div>
         </form>
         <?php

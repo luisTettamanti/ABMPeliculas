@@ -76,7 +76,7 @@ $numCat = $categorias->num_rows;
               ?>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-group my-4">
               <button class="btn btn-success">Guardar</button>
               <a class="btn btn-warning" href="listar.php">Volver</a>
             </div>

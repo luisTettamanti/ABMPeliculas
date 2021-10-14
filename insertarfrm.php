@@ -27,7 +27,7 @@
                 <label for="nombre">idCategoria</label>
                 <input placeholder="idCategoria" class="form-control" type="text" name="idCategoria" id="idCategoria" required>
             </div>
-            <div class="form-group">
+            <div class="form-group my-4">
               <button class="btn btn-success">Guardar</button>
             </div>
         </form>
