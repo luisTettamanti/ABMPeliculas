@@ -14,7 +14,7 @@
     if ($usuarios) {
       $_SESSION['idUsuario'] = $usuarios['id'];
       $_SESSION['usuario'] = $usuarios['usuario'];
-      header("Location: index.php");
+      header("Location: indexCategorias.php");
     } else {
       $alerta = true;
     }
