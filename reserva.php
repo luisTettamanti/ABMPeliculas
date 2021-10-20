@@ -11,9 +11,12 @@ if (isset($_POST['borrarcarro'])) {
     $resNombre = array();
     $_SESSION['resId'] = $resId;
     $_SESSION['resNombre'] = $resNombre;
+  } else {
+    if (isset($_GET['id']) && isset($_GET['nombre'])) {
+      array_push($_SESSION['resId'],$_GET['id']);
+      array_push($_SESSION['resNombre'],$_GET['nombre']);
+    }
   }
-  array_push($_SESSION['resId'],$_GET['id']);
-  array_push($_SESSION['resNombre'],$_GET['nombre']);
 ?>
 
 <table class="table table-hover">

@@ -38,7 +38,7 @@
               <a class="nav-link" href="#">Ofertas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Ayuda</a>
+              <a class="nav-link" href="reserva.php">Carro de Compras</a>
             </li>
           </ul>
           <ul class="nav navbar-nav ms-auto">
