@@ -1,15 +1,16 @@
 <?php
 $mysqli = include_once "conexion.php";
-$nombre = $_POST["nombre"];
-$anio = $_POST["anio"];
-$duracion = $_POST["duracion"];
-$idDirector = $_POST["idDirector"];
-$IMDB = $_POST["IMDB"];
-$idCategoria = $_POST["idCategoria"];
+$nombre = $_GET["nombre"];
+$anio = $_GET["anio"];
+$duracion = $_GET["duracion"];
+$idDirector = $_GET["idDirector"];
+$IMDB = $_GET["IMDB"];
+$idCategoria = $_GET["idCategoria"];
+$caratula = $_GET["caratula"];
+$cantidad = $_GET["cantidad"];
 $sentencia = $mysqli->prepare("INSERT INTO peliculas
-(nombre, anio, duracion, idDirector, IMDB, idCategoria)
-VALUES
-(?, ?, ?, ?, ?, ?)");
-$sentencia->bind_param("siiidi", $nombre, $anio, $duracion, $idDirector, $IMDB, $idCategoria);
+  (nombre, anio, duracion, idDirector, IMDB, idCategoria, caratula, cantidad)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$sentencia->bind_param("siiidisi", $nombre, $anio, $duracion, $idDirector, $IMDB, $idCategoria, $caratula, $cantidad);
 $sentencia->execute();
-header("Location: listar.php");
+//header("Location: listar.php");

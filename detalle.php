@@ -50,10 +50,20 @@ if (isset($_GET['id'])) {
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a href="reserva.php?id=<?php echo $pelicula['id'];?>&nombre=<?php echo $pelicula['nombre']; ?> " class="btn btn-success">Agregar al carrito</a>
+        <form class="" action="reserva.php" method="get">
+          <div class="row">
+            <div class="col-2">
+              <input type="text" class="form-control" placeholder="cantidad" name="cantidad" value="1">
+              <input type="hidden" name="id" value="<?php echo $pelicula['id'];?>">
+            </div>
+            <div class="col-10">
+              <button type="submit" class="btn btn-success">Agregar al carrito</button>
+            </div>
+          </div>
+        </form>
         <!-- <button class="btn btn-success mb-3" href="reserva.php" style="width:100%;" type="button" name="button">Reservar ahora</button> -->
       </div>
     </div>
 
-    <?php include_once "pie.php" ?>
+    <?php include_once "pie.php"; ?>
 <?php } ?>
