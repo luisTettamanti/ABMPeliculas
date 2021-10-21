@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
         <div class="row">
           <?php
           foreach ($similares as $similar) {
-            echo '<div class="col-4">';
+            echo '<div class="col-6 col-xxl-4">';
             echo '<div class="card">';
             echo '<img class="card-img-top" src="img/'.$similar['caratula'].'" alt="Card image">';
             echo '<div class="card-body">';
