@@ -2,7 +2,7 @@
 include_once "encabezado.php";
 $mysqli = include_once "conexion.php";
 
-if (isset($_POST['borrarcarro'])) {
+if (isset($_GET['borrarcarro'])) {
   unset($_SESSION['resId']);
   unset($_SESSION['resNombre']);
   unset($_SESSION['resCaratula']);
@@ -64,7 +64,7 @@ if (isset($_POST['borrarcarro'])) {
 </table>
 
 <div class="d-grid gap-2 d-md-block mb-3">
-  <input class="btn btn-success" type="submit" name="borrarcarro" value="Borrar carro">
+  <a href="reserva.php?borrarcarro=True" class="btn btn-success">Borrar Carro</a>
   <a href="enviarreserva.php" class="btn btn-success">Reservar</a>
 </div>
 
