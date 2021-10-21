@@ -63,15 +63,20 @@ if (isset($_POST['borrarcarro'])) {
   </tbody>
 </table>
 
-<div class="row">
-  <div class="col-1">
+<div class="d-grid gap-2 d-md-block mb-3">
+  <input class="btn btn-success" type="submit" name="borrarcarro" value="Borrar carro">
+  <a href="enviarreserva.php" class="btn btn-success">Reservar</a>
+</div>
+
+<!-- <div class="row">
+  <div class="col-6">
     <form class="" action="reserva.php" method="post">
       <input class="btn btn-success my-3" type="submit" name="borrarcarro" value="Borrar carro">
     </form>
   </div>
-  <div class="col-1">
+  <div class="col-6">
     <a href="enviarreserva.php" class="btn btn-success m-3">Reservar</a>
   </div>
-</div>
+</div> -->
 
 <?php include_once "pie.php";?>

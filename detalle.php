@@ -57,7 +57,7 @@ if (isset($_GET['id'])) {
               <input type="hidden" name="id" value="<?php echo $pelicula['id'];?>">
             </div>
             <div class="col-10">
-              <button type="submit" class="btn btn-success">Agregar al carrito</button>
+              <button type="submit" class="btn btn-success mb-3">Agregar al carrito</button>
             </div>
           </div>
         </form>
