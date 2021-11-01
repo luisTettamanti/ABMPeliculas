@@ -1,6 +1,6 @@
 <?php
   include_once "encabezado.php";
-  $mysqli = include_once "conexion.php";
+  //$mysqli = include_once "conexion.php";
   $alerta = false;
   if (isset($_GET['usuario']) and isset($_GET['clave'])) {
     $usuario = $_GET['usuario'];
@@ -14,13 +14,21 @@
     if ($usuarios) {
       $_SESSION['idUsuario'] = $usuarios['id'];
       $_SESSION['usuario'] = $usuarios['usuario'];
-      header("Location: indexCategorias.php");
+      if (isset($_SESSION['destino'])){
+        $destino='Location: //' . $_SESSION['destino'];
+        header($destino);
+      } else {
+        header('Location: indexCategorias.php');
+      }
     } else {
       $alerta = true;
     }
   } else {
     $usuario = '';
     $clave = '';
+    if (isset($_GET['desde'])){
+      $_SESSION['destino'] = $_GET['desde'];
+    }
   }
 ?>
 

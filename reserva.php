@@ -1,6 +1,6 @@
 <?php
 include_once "encabezado.php";
-$mysqli = include_once "conexion.php";
+//$mysqli = include_once "conexion.php";
 
 if (isset($_GET['borrarcarro'])) {
   unset($_SESSION['resId']);
@@ -8,6 +8,16 @@ if (isset($_GET['borrarcarro'])) {
   unset($_SESSION['resCaratula']);
   unset($_SESSION['resCantidad']);
   unset($_SESSION['resImporte']);
+  $resId = array();
+  $resNombre = array();
+  $resCaratula = array();
+  $resCantidad = array();
+  $resImporte = array();
+  $_SESSION['resId'] = $resId;
+  $_SESSION['resNombre'] = $resNombre;
+  $_SESSION['resCaratula'] = $resCaratula;
+  $_SESSION['resCantidad'] = $resCantidad;
+  $_SESSION['resImporte'] = $resImporte;
 } else {
   if (!isset($_SESSION['resId'])) {
     $resId = array();
@@ -35,48 +45,44 @@ if (isset($_GET['borrarcarro'])) {
     array_push($_SESSION['resCantidad'],$_GET['cantidad']);
     array_push($_SESSION['resImporte'],100);
   }
-?>
+}
 
-<table class="table table-striped">
-  <thead>
-    <th class="table-cell">Carátula</th>
-    <th class="table-cell">Id</th>
-    <th class="table-cell">Película</th>
-    <th class="table-cell">Cantidad</th>
-    <th class="table-cell">Importe</th>
-  </thead>
-  <tbody>
+  if (!isset($_SESSION['resId']) || (count($_SESSION['resId']) > 0)) {
 
-  <?php
-    for ($i=0; $i < count($_SESSION['resId']); $i++) {
-      echo '<tr>';
-      echo '<td class="table-cell"><img class="rounded-circle" style="width:100px; height:100px; object-fit:cover;" src="img/'.$_SESSION['resCaratula'][$i].'"></td>';
-      echo '<td class="table-cell">'.$_SESSION['resId'][$i].'</td>';
-      echo '<td class="table-cell">'.$_SESSION['resNombre'][$i].'</td>';
-      echo '<td class="table-cell">'.$_SESSION['resCantidad'][$i].'</td>';
-      echo '<td class="table-cell">'.$_SESSION['resImporte'][$i].'</td>';
-      echo '</tr>';
-    }
+    echo '<table class="table table-striped">';
+      echo '<thead>';
+        echo '<th class="table-cell">Carátula</th>';
+        echo '<th class="table-cell">Id</th>';
+        echo '<th class="table-cell">Película</th>';
+        echo '<th class="table-cell">Cantidad</th>';
+        echo '<th class="table-cell">Importe</th>';
+      echo '</thead>';
+      echo '<tbody>';
+
+      for ($i=0; $i < count($_SESSION['resId']); $i++) {
+        echo '<tr>';
+        echo '<td class="table-cell"><img class="rounded-circle" style="width:100px; height:100px; object-fit:cover;" src="img/'.$_SESSION['resCaratula'][$i].'"></td>';
+        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resId'][$i].'</td>';
+        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resNombre'][$i].'</td>';
+        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resCantidad'][$i].'</td>';
+        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resImporte'][$i].'</td>';
+        echo '</tr>';
+      }
+
+      echo '</tbody>';
+    echo '</table>';
+
+    } else {
+  echo '<div class="alert alert-info p-2">Aún no hay elementos en el carro.</div>';
   }
-  ?>
 
-  </tbody>
-</table>
-
-<div class="d-grid gap-2 d-md-block mb-3">
+echo <<<'HTML'
+  <div class="d-grid gap-2 d-md-block mb-3">
   <a href="reserva.php?borrarcarro=True" class="btn btn-success">Borrar Carro</a>
   <a href="enviarreserva.php" class="btn btn-success">Reservar</a>
-</div>
-
-<!-- <div class="row">
-  <div class="col-6">
-    <form class="" action="reserva.php" method="post">
-      <input class="btn btn-success my-3" type="submit" name="borrarcarro" value="Borrar carro">
-    </form>
   </div>
-  <div class="col-6">
-    <a href="enviarreserva.php" class="btn btn-success m-3">Reservar</a>
-  </div>
-</div> -->
+HTML;
 
-<?php include_once "pie.php";?>
+  include_once "pie.php";
+
+?>

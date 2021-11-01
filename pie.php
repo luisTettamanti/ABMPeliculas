@@ -1,6 +1,6 @@
-    <footer class="p-3" style="background-color:teal;">
-      <span class="text-white">CarenaMovies</span>
-    </footer>
-  </div>
-</body>
+</div>
+  <footer class="mt-auto p-3" style="background-color:teal;">
+    <span class="text-white">CarenaMovies</span>
+  </footer>
+  </body>
 </html>
