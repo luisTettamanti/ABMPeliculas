@@ -21,35 +21,35 @@ include_once "encabezado.php";
       <img src="img/carMoonlight.jpg" alt="Moonlight" class="d-block w-100">
       <div class="carousel-caption">
         <h3>Moonlight</h3>
-        <p>Oscar Mejor Película 2016</p>
+        <p class="d-none d-sm-block">Oscar Mejor Película 2016</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="img/carBirdman.jpg" alt="Birdman" class="d-block w-100">
       <div class="carousel-caption">
         <h3>Birdman</h3>
-        <p>Oscar Mejor Película 2014</p>
+        <p class="d-none d-sm-block">Oscar Mejor Película 2014</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="img/carParasite.jpg" alt="Parasite" class="d-block w-100">
       <div class="carousel-caption">
         <h3>Parasite</h3>
-        <p>Oscar Mejor Película 2019</p>
+        <p class="d-none d-sm-block">Oscar Mejor Película 2019</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="img/carSpotlight.jpg" alt="Spotlight" class="d-block w-100">
       <div class="carousel-caption">
         <h3>Spotlight</h3>
-        <p>Oscar Mejor Película 2016</p>
+        <p class="d-none d-sm-block">Oscar Mejor Película 2016</p>
       </div>
     </div>
     <div class="carousel-item">
       <img src="img/carKingspeech.jpg" alt="El Discurso del Rey" class="d-block w-100">
       <div class="carousel-caption">
         <h3>El Discurso del Rey</h3>
-        <p>Oscar Mejor Película 2011</p>
+        <p class="d-none d-sm-block">Oscar Mejor Película 2011</p>
       </div>
     </div>
 
