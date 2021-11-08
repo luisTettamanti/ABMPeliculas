@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 08-11-2021 a las 00:06:55
+-- Tiempo de generación: 08-11-2021 a las 22:04:17
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `reservas` (
   PRIMARY KEY (`id`),
   KEY `idUsuario` (`idUsuario`),
   KEY `idEstado` (`idEstado`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `reservas`
@@ -264,14 +264,16 @@ INSERT INTO `reservas` (`id`, `idUsuario`, `fecha`, `idEstado`) VALUES
 (21, 5, '2021-11-02 03:00:00', 1),
 (22, 5, '2021-11-02 03:00:00', 1),
 (23, 14, '2021-11-03 03:00:00', 1),
-(24, 14, '2021-11-03 03:00:00', 1),
+(24, 14, '2021-11-03 03:00:00', 2),
 (25, 14, '2021-11-03 03:00:00', 1),
 (26, 14, '2021-11-04 01:32:07', 1),
 (27, 14, '2021-11-04 01:34:08', 1),
 (28, 14, '2021-11-04 01:42:29', 4),
 (29, 5, '2021-11-04 02:03:54', 4),
-(30, 14, '2021-11-04 03:28:17', 2),
-(31, 14, '2021-11-07 21:47:08', 3);
+(30, 14, '2021-11-04 03:28:17', 3),
+(31, 14, '2021-11-07 21:47:08', 2),
+(32, 14, '2021-11-08 04:46:05', 1),
+(33, 14, '2021-11-08 19:29:51', 1);
 
 -- --------------------------------------------------------
 
@@ -292,10 +294,10 @@ CREATE TABLE IF NOT EXISTS `resestados` (
 --
 
 INSERT INTO `resestados` (`id`, `nombre`, `color`) VALUES
-(1, 'En Preparación', '#e6ffff'),
-(2, 'Enviado', '#ffcc66'),
-(3, 'Entregado', '#00ffcc'),
-(4, 'Cancelado', '#ff5050');
+(1, 'En Preparación', 'LightCyan'),
+(2, 'Enviado', 'SandyBrown'),
+(3, 'Entregado', 'LightSeaGreen'),
+(4, 'Cancelado', 'Crimson');
 
 -- --------------------------------------------------------
 
@@ -312,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `respeliculas` (
   PRIMARY KEY (`id`),
   KEY `idPelicula` (`idPelicula`),
   KEY `idReserva` (`idReserva`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `respeliculas`
@@ -371,7 +373,12 @@ INSERT INTO `respeliculas` (`id`, `idReserva`, `idPelicula`, `cantidad`) VALUES
 (71, 30, 14, 1),
 (72, 31, 9, 1),
 (73, 31, 5, 1),
-(74, 31, 8, 1);
+(74, 31, 8, 1),
+(75, 31, 13, 1),
+(76, 32, 2, 1),
+(77, 33, 4, 1),
+(78, 33, 9, 1),
+(79, 33, 2, 1);
 
 -- --------------------------------------------------------
 
