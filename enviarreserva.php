@@ -4,7 +4,7 @@
 
   if (count($_SESSION['resId']) > 0) {
     $sentencia = $mysqli->prepare("INSERT INTO reservas
-      (idUsuario,fecha) VALUES (?, ?)");
+      (idUsuario,fecha,idEstado) VALUES (?, ?, 1)");
     $sentencia->bind_param("is", $_SESSION['idUsuario'], date("Y-m-d H:i:s"));
     $sentencia->execute();
 
