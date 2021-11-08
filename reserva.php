@@ -49,6 +49,10 @@ if (isset($_GET['borrarcarro'])) {
 
   if (!isset($_SESSION['resId']) || (count($_SESSION['resId']) > 0)) {
 
+    echo '<div class="row"><div class="col-12">';
+    echo '<h3 class="pt-3" style="color:teal; border:1px solid teal; border-style:none none solid none">Carro de Compras</h3>';
+    echo '</div></div>';
+
     echo '<table class="table table-striped">';
       echo '<thead>';
         echo '<th class="table-cell">Carátula</th>';
@@ -73,7 +77,12 @@ if (isset($_GET['borrarcarro'])) {
     echo '</table>';
 
     } else {
-  echo '<div class="alert alert-info p-2">Aún no hay elementos en el carro.</div>';
+
+  echo '<div class="row"><div class="col-12">';
+  echo '<h3 class="pt-3" style="color:teal; border:1px solid teal; border-style:none none solid none">Carro de Compras</h3>';
+  echo '</div></div>';
+
+  echo '<div class="alert alert-info p-2 mt-3">Aún no hay elementos en el carro.</div>';
   }
 
 echo <<<'HTML'

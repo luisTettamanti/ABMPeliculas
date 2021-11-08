@@ -49,10 +49,9 @@ include_once "encabezado.php";
       <img src="img/carKingspeech.jpg" alt="El Discurso del Rey" class="d-block w-100">
       <div class="carousel-caption">
         <h3>El Discurso del Rey</h3>
-        <p class="d-none d-sm-block">Oscar Mejor Película 2011</p>
+        <p>Oscar Mejor Película 2011</p>
       </div>
     </div>
-
   </div>
 
   <!-- Left and right controls/icons -->

@@ -1,6 +1,14 @@
 <?php
   session_start();
   $mysqli = include_once "conexion.php";
+
+  setlocale(LC_ALL,"es_ES");
+  date_default_timezone_set("America/Argentina/Cordoba");
+
+  // $string = "24/11/2014";
+  // $date = DateTime::createFromFormat("d/m/Y", $string);
+  // echo strftime("%A",$date->getTimestamp());
+
   if (isset($_SESSION['usuario'])) {
     $usuarioActual = $_SESSION['usuario'];
   } else {
@@ -42,11 +50,11 @@
               } ?>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Ofertas</a>
-          </li>
           <?php
             if ($usuarioActual!='Usuario') {
+              echo '<li class="nav-item">';
+              echo '<a class="nav-link" href="historial.php">Mis Compras</a>';
+              echo '</li>';
               echo '<li class="nav-item">';
               echo '<a class="nav-link" href="reserva.php">Carro de Compras</a>';
               echo '</li>';

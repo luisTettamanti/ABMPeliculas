@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 01-11-2021 a las 19:06:28
+-- Tiempo de generación: 08-11-2021 a las 00:00:36
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -239,24 +239,63 @@ DROP TABLE IF EXISTS `reservas`;
 CREATE TABLE IF NOT EXISTS `reservas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUsuario` int(11) NOT NULL,
-  `fecha` date NOT NULL,
+  `fecha` timestamp NOT NULL,
+  `idEstado` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `idUsuario` (`idUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  KEY `idUsuario` (`idUsuario`),
+  KEY `idEstado` (`idEstado`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `reservas`
 --
 
-INSERT INTO `reservas` (`id`, `idUsuario`, `fecha`) VALUES
-(11, 14, '2021-10-21'),
-(12, 14, '2021-10-21'),
-(13, 5, '2021-10-25'),
-(14, 4, '2021-10-26'),
-(15, 14, '2021-10-27'),
-(16, 14, '2021-10-27'),
-(17, 14, '2021-10-27'),
-(18, 14, '2021-10-27');
+INSERT INTO `reservas` (`id`, `idUsuario`, `fecha`, `idEstado`) VALUES
+(11, 14, '2021-10-21 03:00:00', 1),
+(12, 14, '2021-10-21 03:00:00', 1),
+(13, 5, '2021-10-25 03:00:00', 1),
+(14, 4, '2021-10-26 03:00:00', 1),
+(15, 14, '2021-10-27 03:00:00', 1),
+(16, 14, '2021-10-27 03:00:00', 1),
+(17, 14, '2021-10-27 03:00:00', 1),
+(18, 14, '2021-10-27 03:00:00', 1),
+(19, 14, '2021-11-02 03:00:00', 1),
+(20, 5, '2021-11-02 03:00:00', 1),
+(21, 5, '2021-11-02 03:00:00', 1),
+(22, 5, '2021-11-02 03:00:00', 1),
+(23, 14, '2021-11-03 03:00:00', 1),
+(24, 14, '2021-11-03 03:00:00', 1),
+(25, 14, '2021-11-03 03:00:00', 1),
+(26, 14, '2021-11-04 01:32:07', 1),
+(27, 14, '2021-11-04 01:34:08', 1),
+(28, 14, '2021-11-04 01:42:29', 4),
+(29, 5, '2021-11-04 02:03:54', 4),
+(30, 14, '2021-11-04 03:28:17', 2),
+(31, 14, '2021-11-07 21:47:08', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `resestados`
+--
+
+DROP TABLE IF EXISTS `resestados`;
+CREATE TABLE IF NOT EXISTS `resestados` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) NOT NULL,
+  `color` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `resestados`
+--
+
+INSERT INTO `resestados` (`id`, `nombre`, `color`) VALUES
+(1, 'En Preparación', '#e6ffff'),
+(2, 'Enviado', '#ffcc66'),
+(3, 'Entregado', '#00ffcc'),
+(4, 'Cancelado', '#ff5050');
 
 -- --------------------------------------------------------
 
@@ -273,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `respeliculas` (
   PRIMARY KEY (`id`),
   KEY `idPelicula` (`idPelicula`),
   KEY `idReserva` (`idReserva`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `respeliculas`
@@ -308,7 +347,31 @@ INSERT INTO `respeliculas` (`id`, `idReserva`, `idPelicula`, `cantidad`) VALUES
 (47, 16, 13, 1),
 (48, 16, 5, 1),
 (49, 16, 9, 1),
-(50, 16, 12, 1);
+(50, 16, 12, 1),
+(51, 19, 4, 1),
+(52, 19, 11, 1),
+(53, 20, 12, 1),
+(54, 20, 5, 1),
+(55, 20, 10, 2),
+(56, 21, 15, 2),
+(57, 21, 1, 2),
+(58, 22, 11, 1),
+(59, 23, 14, 1),
+(60, 23, 9, 2),
+(61, 23, 2, 1),
+(62, 24, 14, 1),
+(63, 24, 8, 1),
+(64, 24, 9, 1),
+(65, 25, 5, 3),
+(66, 26, 13, 1),
+(67, 27, 10, 2),
+(68, 28, 4, 1),
+(69, 29, 11, 1),
+(70, 30, 15, 1),
+(71, 30, 14, 1),
+(72, 31, 9, 1),
+(73, 31, 5, 1),
+(74, 31, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -357,7 +420,8 @@ ALTER TABLE `peliculas`
 -- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`);
+  ADD CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id`),
+  ADD CONSTRAINT `reservas_ibfk_3` FOREIGN KEY (`idEstado`) REFERENCES `resestados` (`id`);
 
 --
 -- Filtros para la tabla `respeliculas`
