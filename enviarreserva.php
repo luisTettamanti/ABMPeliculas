@@ -2,6 +2,9 @@
   session_start();
   $mysqli = include_once "conexion.php";
 
+  setlocale(LC_ALL,"es_ES");
+  date_default_timezone_set("America/Argentina/Cordoba");
+
   if (count($_SESSION['resId']) > 0) {
     $sentencia = $mysqli->prepare("INSERT INTO reservas
       (idUsuario,fecha,idEstado) VALUES (?, ?, 1)");
@@ -27,5 +30,6 @@
   unset($_SESSION['resCantidad']);
   unset($_SESSION['resImporte']);
 
-  header("Location: indexCategorias.php");
+  //header("Location: indexCategorias.php");
+  header("Location: reserva.php?reservarcarro=True")
 ?>
