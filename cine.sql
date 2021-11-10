@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 08-11-2021 a las 22:04:17
+-- Tiempo de generación: 10-11-2021 a las 21:30:54
 -- Versión del servidor: 5.7.21
 -- Versión de PHP: 5.6.35
 
@@ -244,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `reservas` (
   PRIMARY KEY (`id`),
   KEY `idUsuario` (`idUsuario`),
   KEY `idEstado` (`idEstado`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `reservas`
@@ -273,7 +273,16 @@ INSERT INTO `reservas` (`id`, `idUsuario`, `fecha`, `idEstado`) VALUES
 (30, 14, '2021-11-04 03:28:17', 3),
 (31, 14, '2021-11-07 21:47:08', 2),
 (32, 14, '2021-11-08 04:46:05', 1),
-(33, 14, '2021-11-08 19:29:51', 1);
+(33, 14, '2021-11-08 19:29:51', 2),
+(34, 5, '2021-11-09 03:39:25', 3),
+(35, 5, '2021-11-09 00:52:28', 1),
+(36, 14, '2021-11-09 21:47:17', 4),
+(37, 14, '2021-11-09 22:11:33', 1),
+(38, 14, '2021-11-09 22:14:44', 1),
+(39, 5, '2021-11-09 22:27:21', 1),
+(40, 5, '2021-11-09 23:29:35', 1),
+(41, 5, '2021-11-09 23:48:44', 3),
+(42, 5, '2021-11-10 00:30:52', 2);
 
 -- --------------------------------------------------------
 
@@ -314,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `respeliculas` (
   PRIMARY KEY (`id`),
   KEY `idPelicula` (`idPelicula`),
   KEY `idReserva` (`idReserva`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `respeliculas`
@@ -378,7 +387,21 @@ INSERT INTO `respeliculas` (`id`, `idReserva`, `idPelicula`, `cantidad`) VALUES
 (76, 32, 2, 1),
 (77, 33, 4, 1),
 (78, 33, 9, 1),
-(79, 33, 2, 1);
+(79, 33, 2, 1),
+(80, 34, 5, 1),
+(81, 35, 11, 1),
+(82, 36, 11, 1),
+(83, 37, 14, 1),
+(84, 37, 2, 1),
+(85, 38, 9, 1),
+(86, 38, 12, 1),
+(87, 39, 8, 1),
+(88, 39, 4, 1),
+(89, 40, 10, 1),
+(90, 40, 8, 1),
+(91, 41, 11, 1),
+(92, 42, 11, 2),
+(93, 42, 13, 1);
 
 -- --------------------------------------------------------
 

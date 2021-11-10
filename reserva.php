@@ -1,6 +1,24 @@
 <?php
 include_once "encabezado.php";
 //$mysqli = include_once "conexion.php";
+echo '<div class="row"><div class="col-12">';
+echo '<h3 class="pt-3" style="color:teal; border:1px solid teal; border-style:none none solid none">Carro de Compras</h3>';
+echo '</div></div>';
+
+if (isset($_GET['reservarcarro'])) {
+echo <<< HTML
+  <div class="toast show">
+    <div class="toast-header bg-success text-white">
+      <strong class="me-auto">Importante</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+      Su reserva ha sido realizada con éxito...!
+    </div>
+  </div>
+HTML;
+  //echo '<div class="alert alert-success p-2 mt-3">Su reserva ha sido realizada con éxito.</div>';
+}
 
 if (isset($_GET['borrarcarro'])) {
   unset($_SESSION['resId']);
@@ -47,43 +65,44 @@ if (isset($_GET['borrarcarro'])) {
   }
 }
 
-  if (!isset($_SESSION['resId']) || (count($_SESSION['resId']) > 0)) {
+if (!isset($_SESSION['resId']) || (count($_SESSION['resId']) > 0)) {
+  // echo '<div class="row"><div class="col-12">';
+  // echo '<h3 class="pt-3" style="color:teal; border:1px solid teal; border-style:none none solid none">Carro de Compras</h3>';
+  // echo '</div></div>';
 
-    echo '<div class="row"><div class="col-12">';
-    echo '<h3 class="pt-3" style="color:teal; border:1px solid teal; border-style:none none solid none">Carro de Compras</h3>';
-    echo '</div></div>';
+echo <<< HTML
+  <table class="table table-striped">
+    <thead>
+      <th class="table-cell">Carátula</th>
+      <th class="table-cell">Id</th>
+      <th class="table-cell">Película</th>
+      <th class="table-cell">Cantidad</th>
+      <th class="table-cell">Importe</th>
+    </thead>
+    <tbody>
+HTML;
 
-    echo '<table class="table table-striped">';
-      echo '<thead>';
-        echo '<th class="table-cell">Carátula</th>';
-        echo '<th class="table-cell">Id</th>';
-        echo '<th class="table-cell">Película</th>';
-        echo '<th class="table-cell">Cantidad</th>';
-        echo '<th class="table-cell">Importe</th>';
-      echo '</thead>';
-      echo '<tbody>';
+    for ($i=0; $i < count($_SESSION['resId']); $i++) {
+      echo '<tr>';
+      echo '<td class="table-cell"><img class="rounded-circle" style="width:100px; height:100px; object-fit:cover;" src="img/'.$_SESSION['resCaratula'][$i].'"></td>';
+      echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resId'][$i].'</td>';
+      echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resNombre'][$i].'</td>';
+      echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resCantidad'][$i].'</td>';
+      echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resImporte'][$i].'</td>';
+      echo '</tr>';
+    }
 
-      for ($i=0; $i < count($_SESSION['resId']); $i++) {
-        echo '<tr>';
-        echo '<td class="table-cell"><img class="rounded-circle" style="width:100px; height:100px; object-fit:cover;" src="img/'.$_SESSION['resCaratula'][$i].'"></td>';
-        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resId'][$i].'</td>';
-        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resNombre'][$i].'</td>';
-        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resCantidad'][$i].'</td>';
-        echo '<td class="table-cell" style="vertical-align:middle;">'.$_SESSION['resImporte'][$i].'</td>';
-        echo '</tr>';
-      }
+    echo '</tbody>';
+  echo '</table>';
 
-      echo '</tbody>';
-    echo '</table>';
+} else {
 
-    } else {
-
-  echo '<div class="row"><div class="col-12">';
-  echo '<h3 class="pt-3" style="color:teal; border:1px solid teal; border-style:none none solid none">Carro de Compras</h3>';
-  echo '</div></div>';
+  // echo '<div class="row"><div class="col-12">';
+  // echo '<h3 class="pt-3" style="color:teal; border:1px solid teal; border-style:none none solid none">Carro de Compras</h3>';
+  // echo '</div></div>';
 
   echo '<div class="alert alert-info p-2 mt-3">Aún no hay elementos en el carro.</div>';
-  }
+}
 
 echo <<<'HTML'
   <div class="d-grid gap-2 d-md-block mb-3">
