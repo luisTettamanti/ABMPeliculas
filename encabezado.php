@@ -28,13 +28,13 @@
 
 <body class="d-flex flex-column min-vh-100" style="background-image: url('img/fondo.jpg');">
   <header class="text-white p-3" style="background-color:teal;background-image:url('img/camara.png');background-size:cover;background-repeat:no-repeat;">
-    <a href="indexcategorias.php">
+    <a href="index.php">
       <div class="col-xxl-3 col-lg-5 col-xs-12" style="height:150px;background-image:url('img/carenaMovies.png');background-size:contain;background-repeat:no-repeat;background-position:center;"></div>
     </a>
   </header>
   <nav style="background-color:teal;" class="navbar navbar-expand-sm sticky-top navbar-dark mb-3">
     <div class="container-fluid">
-      <a class="navbar-brand" style="color:#ffff66;" href="indexcategorias.php">CarenaMovies</a>
+      <a class="navbar-brand" style="color:#ffff66;" href="index.php">CarenaMovies</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -43,9 +43,9 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Categorías</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="indexcategorias.php?categoria=Todas">Todas</a></li>
+              <li><a class="dropdown-item" href="index.php?categoria=Todas">Todas</a></li>
               <?php foreach ($categorias as $cat) {
-                echo '<li><a class="dropdown-item" href="indexcategorias.php?categoria='.$cat['nombre'].'">'.$cat['nombre'].'</a></li>';
+                echo '<li><a class="dropdown-item" href="index.php?categoria='.$cat['nombre'].'">'.$cat['nombre'].'</a></li>';
               } ?>
             </ul>
           </li>
