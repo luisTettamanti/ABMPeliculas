@@ -30,6 +30,6 @@
   unset($_SESSION['resCantidad']);
   unset($_SESSION['resImporte']);
 
-  //header("Location: indexCategorias.php");
+  //header("Location: index.php");
   header("Location: reserva.php?reservarcarro=True")
 ?>

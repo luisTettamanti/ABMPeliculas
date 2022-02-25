@@ -18,7 +18,7 @@
         $destino='Location: //' . $_SESSION['destino'];
         header($destino);
       } else {
-        header('Location: indexCategorias.php');
+        header('Location: index.php');
       }
     } else {
       $alerta = true;
