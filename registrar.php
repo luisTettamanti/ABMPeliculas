@@ -1,6 +1,6 @@
 <?php
   include_once "encabezado.php";
-  $mysqli = include_once "conexion.php";
+  //$mysqli = include_once "conexion.php";
   $errores = 0;
   $mensajes = array();
 
